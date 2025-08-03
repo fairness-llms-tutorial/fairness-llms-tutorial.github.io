@@ -12466,7 +12466,7 @@ a.theme-link:hover {
 .hero-block {
     position: relative;
     background-size: cover;
-    height: 690px;
+    height: 600px;
     padding-top: 130px
 }
 
@@ -12500,7 +12500,8 @@ a.theme-link:hover {
 
 .hero-carousel .carousel-item-1 {
     /*background: url("../images/cikm.jpeg") no-repeat center center*/
-    background: url("https://2025.ijcai.org/wp-content/uploads/2020/07/Ijcai2021-Header-Image.jpg") no-repeat center center
+    /*background: url("https://2025.ijcai.org/wp-content/uploads/2020/07/Ijcai2021-Header-Image.jpg") no-repeat center center*/
+    background: url("../images/banner.png") no-repeat center center
 }
 
 .hero-carousel .carousel-item-2 {
