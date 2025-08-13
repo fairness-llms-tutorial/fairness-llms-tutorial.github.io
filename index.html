@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-	<title>Fairness in Large Language Models: A Tutorial</title>
+	<title>Fairness in Language Models: A Tutorial</title>
 	
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -68,7 +68,7 @@
 		<div class="hero-block-mask"></div>
 		<div class="container">
 			<div class="hero-text-block">
-				<h2 class="hero-heading mb-2" style="color: whitesmoke;font-size: 32px">Fairness in Large Language Models: A Tutorial</h2>
+				<h2 class="hero-heading mb-2" style="color: whitesmoke;font-size: 32px">Fairness in Language Models: A Tutorial</h2>
 <!--				<div class="hero-meta mb-3"><i class="far fa-calendar-alt me-2"></i>August 18th <i class="fas fa-map-marker-alt mx-2"></i>Montreal, Canada</div>-->
 <!--				<div class="hero-intro mb-4">IJCAI 2025 Tutorial</div>-->
 <!--				<div class="hero-cta"><a class="btn btn-primary btn-lg" href="https://www.17sucai.com" target="_blank">Get Tickets</a></div>-->
@@ -113,21 +113,21 @@
 		<div class="container">
 			<h3 class="section-heading text-center mb-3">Overview</h3>
 <!--			<div class="section-intro single-col-max mx-auto mb-4">Briefly introduce your conference or event here. You should convince people why they should attend with a list of benefits. <strong>Are you a conference organizer? Want to source developer t-shirts as part of your conference package?</strong> Check out our programming tees at <a href="https://made4dev.com/" target="_blank">made4dev.com</a> - developers love them! Want to get a bulk discount or just want to use one of the t-shirt designs? Please email <a href="mailto:hello@made4dev.com">hello@made4dev.com</a> and we can discuss.</div>-->
-			<div class="section-intro single-col-max mx-auto mb-4"><p style="text-align: justify">Large Language Models (LLMs) have demonstrated remarkable success across various domains over the years. However, despite their promising performance on various real world tasks, most of these algorithms lack fairness considerations, potentially leading to discriminatory outcomes against marginalized demographic groups and individuals. Many recent publications have explored ways to mitigate bias in LLMs. Nevertheless, a comprehensive understanding of the root causes of bias, their effects, and possible limitations of LLMs from the perspective of fairness is still in its early stages. To bridge this gap, this tutorial provides a systematic overview of recent advances in fair LLMs, beginning with real-world case studies, followed by an analysis of bias causes. We then explore fairness concepts specific to LLMs, summarizing bias evaluation strategies and algorithms designed to promote fairness. Finally, we analyze bias in LLM datasets and discuss current research challenges and open questions in the field. </div>
+			<div class="section-intro single-col-max mx-auto mb-4"><p style="text-align: justify">Language Models (LMs) have demonstrated remarkable success across various domains over the years. However, despite their promising performance on various real world tasks, most of these algorithms lack fairness considerations, potentially leading to discriminatory outcomes against marginalized demographic groups and individuals. Many recent publications have explored ways to mitigate bias in LMs. Nevertheless, a comprehensive understanding of the root causes of bias, their effects, and possible limitations of LMs from the perspective of fairness is still in its early stages. To bridge this gap, this tutorial provides a systematic overview of recent advances in fair LMs, beginning with real-world case studies, followed by an analysis of bias causes. We then explore fairness concepts specific to LMs, summarizing bias evaluation strategies and algorithms designed to promote fairness. Finally, we analyze bias in LM datasets and discuss current research challenges and open questions in the field. </div>
 			<div class="benefits-list text-center mb-3">
 				<h4 class="text-center mb-4">Our tutorial is structured into five key parts:</h4>
 				<ul class="list-unstyled text-start d-inline-block">
-					<li><i class="fas fa-check-circle me-2"></i>Background on LLMs</li>
-					<li><i class="fas fa-check-circle me-2"></i>Quantifying Bias in LLMs </li>
-					<li><i class="fas fa-check-circle me-2"></i>Mitigating Bias in LLMs</li>
+					<li><i class="fas fa-check-circle me-2"></i>Background on LMs</li>
+					<li><i class="fas fa-check-circle me-2"></i>Quantifying Bias in LMs </li>
+					<li><i class="fas fa-check-circle me-2"></i>Mitigating Bias in LMs</li>
 					<li><i class="fas fa-check-circle me-2"></i>Resources for Evaluating Bias</li>
-					<li><i class="fas fa-check-circle me-2"></i>Challenges and Future Directions</li>
+					<li><i class="fas fa-check-circle me-2"></i>Future Directions</li>
 <!--					<li><i class="fas fa-check-circle me-2"></i>Practical workshops to lorem ipsum dolor</li>-->
 <!--					<li><i class="fas fa-check-circle me-2"></i>After-party lorem ipsum dolor</li>-->
 <!--					<li><i class="fas fa-check-circle me-2"></i>Free <a href="https://made4dev.com">developer t-shirts</a> and swag</li>-->
 				</ul>
 				<div style="display: flex; justify-content: center">
-					<div class="schedule-cta text-center" style="margin-right: 20px"><a href=# class="btn btn-primary btn-lg" target="_blank" style="width: 220px">Paper</a></div>
+					<div class="schedule-cta text-center" style="margin-right: 20px"><a href=https://dl.acm.org/doi/abs/10.1145/3682112.3682117 class="btn btn-primary btn-lg" target="_blank" style="width: 220px">Paper</a></div>
 
 					<div class="schedule-cta text-center" style="margin-left: 20px"><a href=# class="btn btn-primary btn-lg" target="_blank" style="width: 220px">Download Slide</a></div>
 
@@ -397,9 +397,9 @@
 							</div><!--//profile-->
 						</div><!--//meta-->
 						<div class="content">
-							<h3 class="title mb-3">Part I: Background on LLMs</h3>
+							<h3 class="title mb-3">Part I: Background on LMs</h3>
 							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room A</div>
-							<div class="desc"><strong>- Introduction to LLMs <br>- Training Process of LLMs<br>- Root Causes of Bias in LLMs </div>
+							<div class="desc"><strong>- Introduction to LMs <br>- Root Causes of Bias in LMs </div>
 						</div><!--//content-->
 					</div><!--//item-->
 					<div class="item item-talk">
@@ -411,7 +411,7 @@
 							</div><!--//profile-->
 						</div><!--//meta-->
 						<div class="content">
-							<h3 class="title mb-3">Part II: Quantifying Bias in LLMs</h3>
+							<h3 class="title mb-3">Part II: Quantifying Bias in LMs</h3>
 							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room A</div>
 							<div class="desc"> <strong>- Demographic representation<br>- Stereotypical association<br>- Counterfactual fairness<br>- Performance disparities</strong></div>
 						</div><!--//content-->
@@ -436,7 +436,7 @@
 
 						</div><!--//meta-->
 						<div class="content">
-							<h3 class="title mb-3">Part III: Mitigating Bias in LLMs</h3>
+							<h3 class="title mb-3">Part III: Mitigating Bias in LMs</h3>
 							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room A</div>
 							<div class="desc"><strong>- Pre-processing<br>- In-training<br></strong>- Intra-processing <br>- Post-processing</div>
 						</div><!--//content-->
@@ -479,9 +479,9 @@
 							</div><!--//profile-->
 						</div><!--//meta-->
 						<div class="content">
-							<h3 class="title mb-3">Part V: Challenges and Future Directions</h3>
+							<h3 class="title mb-3">Part V:Future Directions</h3>
 							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room C</div>
-							<div class="desc"><STRONG>- Formulating Fairness Notions<br>- Rational Counterfactual Data Augmentation<BR>- Balancing Performance and Fairness in LLMs<br>- Fulfilling Multiple Types of Fairness<br>- Developing More and Tailored Datasets</STRONG> </div>
+							<div class="desc"><STRONG><br>- Rational Counterfactual Data Augmentation<BR>- Balancing Performance and Fairness in LLMs<br>- Fulfilling Multiple Types of Fairness<br>- Developing More and Tailored Datasets</STRONG> </div>
 						</div><!--//content-->
 					</div><!--//item-->
 <!--					<div class="item item-talk">-->
