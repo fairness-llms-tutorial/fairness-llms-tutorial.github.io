@@ -131,14 +131,80 @@
 
 					<div class="schedule-cta text-center" style="margin-left: 20px"><a href=Fairness_in_LMs_IJCAI_Tutorial.pdf class="btn btn-primary btn-lg" target="_blank" style="width: 220px">Tutorial slides</a></div>
 
+
 				</div><!--//benefits-list-->
-				<p style="margin-top: 25px; font-size: 20px ">   Check out our <a href=# style="font-style: italic;"><strong>survey</strong></a> on fairness in language models. &nbsp;</p>
+<!--				<p style="margin-top: 25px; font-size: 20px ">   Check out our <a href=# style="font-style: italic;"><strong>survey</strong></a> on fairness in language models. &nbsp;</p>-->
+				<p style="margin-top: 25px; font-size: 20px;">
+					Check out our
+					<span class="popover-hover">
+				<a href="Javascript:void(0);" style="font-style: italic;"><strong>surveys</strong></a>
+				<span class="popover-content" style="text-align: justify">
+					<strong>&bull; <a href="https://arxiv.org/abs/2402.06853" style="color:#1786b6;text-decoration:underline;">History, Development, and Principles of Large Language Models-An Introductory Survey</a></strong><br>
+				  	<strong>&bull; <a href="https://dl.acm.org/doi/abs/10.1145/3682112.3682117" style="color:#1786b6;text-decoration:underline;">Fairness in Large Language Models: A Taxonomic Survey</a></strong> <br>
+					<strong>&bull; <a href="https://arxiv.org/abs/2407.18454" style="color:#1786b6;text-decoration:underline;">Fairness Definitions in Language Models Explained</a></strong><br>
+					<strong>&bull; <a href="https://arxiv.org/abs/2506.23411" style="color:#1786b6;text-decoration:underline;">Datasets for Fairness in Language Models: An In-Depth Survey</a></strong><br>
+				</span>
+			  </span>
+								on fairness in language models.&nbsp;
+							</p>
+
+							<style>
+								.popover-hover {
+									position: relative;
+									display: inline-block;
+								}
+
+								.popover-content {
+									display: none;
+									position: absolute;
+									z-index: 10;
+									top: 105%;  /* 贴近文字 */
+									left: 50%;
+									transform: translateX(-50%);
+									max-width: 720px;   /* 响应式：最大宽度 */
+									width: max-content; /* 内容多时可扩展，受max-width限制 */
+									min-width: 180px;
+									background: #fff;
+									color: #222;
+									border: 1.5px solid #97b7d1;
+									border-radius: 10px;
+									padding: 10px 16px;
+									font-size: 17px;
+									box-shadow: 0 6px 18px #0001;
+									white-space: normal;
+									word-break: break-word; /* 保证单词不会超出边界 */
+									pointer-events: auto;
+								}
+
+								.popover-hover:hover .popover-content,
+								.popover-hover:focus-within .popover-content,
+								.popover-content:hover {
+									display: block;
+								}
+
+								/* 响应式适配：小屏幕下调整弹窗样式 */
+								@media (max-width: 600px) {
+									.popover-content {
+										left: 180%;
+										transform: translateX(-50%);
+										max-width: 92vw;
+										min-width: 120px;
+										font-size: 15px;
+										padding: 8px 8px;
+									}
+
+									p {
+										font-size: 16px !important;
+									}
+								}
+							</style>
 				<p style="font-size: 20px">   This tutorial is grounded in our surveys and established benchmarks, all available as <a href=https://github.com/lavinWong/fairness-in-large-language-models style="font-style: italic"><strong>open-source resources</strong></a>.</p>
 <!--			<div class="event-countdown text-center mb-3">-->
 <!--				<h4 class="countdown-intro mb-2 text-center mb-3">Event Starts In:</h4>-->
 <!--				<div id="countdown-box" class="countdown-box"></div>-->
 <!--			</div>&lt;!&ndash;//event-countdown&ndash;&gt;-->
 <!--			<div class="about-cta text-center mb-5"><a class="btn btn-secondary btn-lg  mb-5" href="https://www.17sucai.com" target="_blank">Get Your Ticket Today</a></div>-->
+
 				<div><br><br></div>
 		</div><!--//container-->
 
@@ -413,7 +479,7 @@
 						<div class="content">
 							<h3 class="title mb-3">Part II: Quantifying Bias in LMs</h3>
 							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room </div>
-							<div class="desc"> <strong>- Demographic representation<br>- Stereotypical association<br>- Counterfactual fairness<br>- Performance disparities</strong></div>
+							<div class="desc"> <strong>- Fairness definitions for Encoder-only LMs<br>- Fairness definitions for Decoder-only LMs<br>- Fairness definitions for Encoder decoder LMs</strong></div>
 						</div><!--//content-->
 					</div><!--//item-->
 <!--					<div class="item item-other">-->
@@ -456,7 +522,7 @@
 						<div class="content">
 							<h3 class="title mb-3">Part IV: Resources for Evaluating Bias in LMs</h3>
 							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room </div>
-							<div class="desc"><strong>- Datasets<br>- Toolkits</strong></div>
+							<div class="desc"><strong>- Datasets for fairness in LMs<br>- Other resources for fairness in LMs</strong></div>
 						</div><!--//content-->
 					</div><!--//item-->
 <!--					<div class="item item-other">-->
@@ -479,7 +545,7 @@
 							</div><!--//profile-->
 						</div><!--//meta-->
 						<div class="content">
-							<h3 class="title mb-3">Part V:Future Directions</h3>
+							<h3 class="title mb-3">Part V: Future Directions</h3>
 							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room </div>
 							<div class="desc"><STRONG>- Rational Counterfactual Data Augmentation<BR>- Balancing Performance and Fairness in LMs<br>- Fulfilling Multiple Types of Fairness<br>- Theoretical Analysis and Guarantees
 								<br>- Developing More and Tailored Datasets</STRONG> </div>
