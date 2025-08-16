@@ -19,6 +19,60 @@
 
 	<!-- Theme CSS -->  
 	<link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+	<style>
+		/* 只作用于 #paperFlow 这个组件 */
+		#paperFlow{ position:relative; max-width: 720px; margin: 12px auto 0; }
+		#paperFlow .wires{ position:absolute; inset:0; pointer-events:none; }
+
+		#paperFlow .cols{
+			display:grid;
+			grid-template-columns: 1fr 1fr;  /* 始终左右两列 */
+			gap: 32px;
+			align-items:center;
+		}
+		#paperFlow .left-col{
+			display:flex; flex-direction:column; gap:18px;
+		}
+
+		/* 让 Bootstrap 按钮在该组件里更适配布局（保持你原有 class） */
+		#paperFlow .btn.btn-primary.btn-lg{
+			min-width: 250px;
+			min-height: 56px;
+			font-weight: 700;
+			text-align: center;
+			transition: transform .15s ease, filter .2s ease;
+		}
+		#paperFlow .btn.btn-primary.btn-lg{
+			display: inline-flex;           /* 关键1 */
+			align-items: center;            /* 关键2：垂直居中 */
+			justify-content: center;        /* 水平居中（保险） */
+			line-height: 1.2;               /* 避免行高过大造成“飘” */
+			/* 你需要的高度可继续用 min-height/height，自由选择 */
+			/* min-height: 56px;  */
+			/* height: 56px;      // 若要固定高度可用这个 */
+		}
+		#paperFlow .btn.btn-primary.btn-lg:hover{
+			transform: translateY(-1px);
+			filter: brightness(1.03);
+		}
+
+
+
+		/* 窄屏仅缩小按钮尺寸，布局仍是两列 */
+		@media (max-width: 600px){
+			#paperFlow{ max-width: 560px; }
+			#paperFlow .cols{ gap: 24px; }
+			#paperFlow .left-col{ gap: 14px; }
+			#paperFlow .btn.btn-primary.btn-lg{
+				transform: scale(0.85);
+				transform-origin: center;
+				min-width: 180px;
+				min-height: 48px;
+				font-size: 1rem;
+				padding: .5rem .9rem;
+			}
+		}
+	</style>
 
 
 </head> 
@@ -129,76 +183,93 @@
 				<div style="display: flex; justify-content: center">
 					<div class="schedule-cta text-center" style="margin-right: 20px"><a href=https://dl.acm.org/doi/abs/10.1145/3682112.3682117 class="btn btn-primary btn-lg" target="_blank" style="width: 220px">Paper</a></div>
 
-					<div class="schedule-cta text-center" style="margin-left: 20px"><a href=Fairness_in_LMs_IJCAI_Tutorial.pdf class="btn btn-primary btn-lg" target="_blank" style="width: 220px">Tutorial slides</a></div>
+<!--					<div class="schedule-cta text-center" style="margin-left: 20px"><a href=Fairness_in_LMs_IJCAI_Tutorial.pdf class="btn btn-primary btn-lg" target="_blank" style="width: 220px">Tutorial slides</a></div>-->
 
 
 				</div><!--//benefits-list-->
 <!--				<p style="margin-top: 25px; font-size: 20px ">   Check out our <a href=# style="font-style: italic;"><strong>survey</strong></a> on fairness in language models. &nbsp;</p>-->
-				<p style="margin-top: 25px; font-size: 20px;">
-					Check out our
-					<span class="popover-hover">
-				<a href="Javascript:void(0);" style="font-style: italic;"><strong>Surveys</strong></a>
-				<span class="popover-content" style="text-align: justify">
-					<strong>&bull; <a href="https://arxiv.org/abs/2402.06853" style="color:#1786b6;text-decoration:underline;">History, Development, and Principles of Large Language Models-An Introductory Survey</a></strong><br>
-				  	<strong>&bull; <a href="https://dl.acm.org/doi/abs/10.1145/3682112.3682117" style="color:#1786b6;text-decoration:underline;">Fairness in Large Language Models: A Taxonomic Survey</a></strong> <br>
-					<strong>&bull; <a href="https://arxiv.org/abs/2407.18454" style="color:#1786b6;text-decoration:underline;">Fairness Definitions in Language Models Explained</a></strong><br>
-					<strong>&bull; <a href="https://arxiv.org/abs/2506.23411" style="color:#1786b6;text-decoration:underline;">Datasets for Fairness in Language Models: An In-Depth Survey</a></strong><br>
-				</span>
-			  </span>
-								on fairness in language models.&nbsp;
-							</p>
+				<p style="margin-top: 30px; font-size: 20px "> Our surveys the basis for the tutorial slides; click to view the <strong>survey</strong> and <strong>slides</strong>. &nbsp;</p>
 
-							<style>
-								.popover-hover {
-									position: relative;
-									display: inline-block;
-								}
+				<div id="paperFlow"  style="margin-top: 25px">
+					<svg class="wires" aria-hidden="true"></svg>
+					<div class="cols">
+						<div class="left-col">
+							<a class="btn btn-primary btn-lg" target="_blank" href="https://arxiv.org/abs/2402.06853" style="text-align:center">History, Development, and Principles of Large Language Models-An Introductory Survey</a>
+							<a class="btn btn-primary btn-lg" target="_blank" href="https://dl.acm.org/doi/abs/10.1145/3682112.3682117">Fairness in Large Language Models: A Taxonomic Survey</a>
+							<a class="btn btn-primary btn-lg" target="_blank" href="https://dl.acm.org/doi/abs/10.1145/3682112.3682117">Fairness Definitions in Language Models Explained</a>
+							<a class="btn btn-primary btn-lg" target="_blank" href="https://arxiv.org/abs/2506.23411">Datasets for Fairness in Language Models: An In-Depth Survey</a>
+						</div>
+						<div class="right-col">
+							<a class="btn btn-primary btn-lg" target="_blank" href=Fairness_in_LMs_IJCAI_Tutorial.pdf>Tutorial slides</a>
+						</div>
+					</div>
+				</div>
 
-								.popover-content {
-									display: none;
-									position: absolute;
-									z-index: 10;
-									top: 105%;  /* 贴近文字 */
-									left: 50%;
-									transform: translateX(-50%);
-									max-width: 720px;   /* 响应式：最大宽度 */
-									width: max-content; /* 内容多时可扩展，受max-width限制 */
-									min-width: 180px;
-									background: #fff;
-									color: #222;
-									border: 1.5px solid #97b7d1;
-									border-radius: 10px;
-									padding: 10px 16px;
-									font-size: 17px;
-									box-shadow: 0 6px 18px #0001;
-									white-space: normal;
-									word-break: break-word; /* 保证单词不会超出边界 */
-									pointer-events: auto;
-								}
+				<!--				<p style="margin-top: 25px; font-size: 20px;">-->
+<!--					Check out our-->
+<!--					<span class="popover-hover">-->
+<!--				<a href="Javascript:void(0);" style="font-style: italic;"><strong>Surveys</strong></a>-->
+<!--				<span class="popover-content" style="text-align: justify">-->
+<!--					<strong>&bull; <a href="https://arxiv.org/abs/2402.06853" style="color:#1786b6;text-decoration:underline;">History, Development, and Principles of Large Language Models-An Introductory Survey</a></strong><br>-->
+<!--				  	<strong>&bull; <a href="https://dl.acm.org/doi/abs/10.1145/3682112.3682117" style="color:#1786b6;text-decoration:underline;">Fairness in Large Language Models: A Taxonomic Survey</a></strong> <br>-->
+<!--					<strong>&bull; <a href="https://arxiv.org/abs/2407.18454" style="color:#1786b6;text-decoration:underline;">Fairness Definitions in Language Models Explained</a></strong><br>-->
+<!--					<strong>&bull; <a href="https://arxiv.org/abs/2506.23411" style="color:#1786b6;text-decoration:underline;">Datasets for Fairness in Language Models: An In-Depth Survey</a></strong><br>-->
+<!--				</span>-->
+<!--			  </span>-->
+<!--								on fairness in language models.&nbsp;-->
+<!--							</p>-->
 
-								.popover-hover:hover .popover-content,
-								.popover-hover:focus-within .popover-content,
-								.popover-content:hover {
-									display: block;
-								}
+<!--							<style>-->
+<!--								.popover-hover {-->
+<!--									position: relative;-->
+<!--									display: inline-block;-->
+<!--								}-->
 
-								/* 响应式适配：小屏幕下调整弹窗样式 */
-								@media (max-width: 600px) {
-									.popover-content {
-										left: 180%;
-										transform: translateX(-50%);
-										max-width: 92vw;
-										min-width: 120px;
-										font-size: 15px;
-										padding: 8px 8px;
-									}
+<!--								.popover-content {-->
+<!--									display: none;-->
+<!--									position: absolute;-->
+<!--									z-index: 10;-->
+<!--									top: 105%;  /* 贴近文字 */-->
+<!--									left: 50%;-->
+<!--									transform: translateX(-50%);-->
+<!--									max-width: 720px;   /* 响应式：最大宽度 */-->
+<!--									width: max-content; /* 内容多时可扩展，受max-width限制 */-->
+<!--									min-width: 180px;-->
+<!--									background: #fff;-->
+<!--									color: #222;-->
+<!--									border: 1.5px solid #97b7d1;-->
+<!--									border-radius: 10px;-->
+<!--									padding: 10px 16px;-->
+<!--									font-size: 17px;-->
+<!--									box-shadow: 0 6px 18px #0001;-->
+<!--									white-space: normal;-->
+<!--									word-break: break-word; /* 保证单词不会超出边界 */-->
+<!--									pointer-events: auto;-->
+<!--								}-->
 
-									p {
-										font-size: 16px !important;
-									}
-								}
-							</style>
-				<p style="font-size: 20px">   This tutorial is grounded in our surveys and established benchmarks, all available as <a href=https://github.com/lavinWong/fairness-in-large-language-models style="font-style: italic"><strong>open-source resources</strong></a>.</p>
+<!--								.popover-hover:hover .popover-content,-->
+<!--								.popover-hover:focus-within .popover-content,-->
+<!--								.popover-content:hover {-->
+<!--									display: block;-->
+<!--								}-->
+
+<!--								/* 响应式适配：小屏幕下调整弹窗样式 */-->
+<!--								@media (max-width: 600px) {-->
+<!--									.popover-content {-->
+<!--										left: 180%;-->
+<!--										transform: translateX(-50%);-->
+<!--										max-width: 92vw;-->
+<!--										min-width: 120px;-->
+<!--										font-size: 15px;-->
+<!--										padding: 8px 8px;-->
+<!--									}-->
+
+<!--									p {-->
+<!--										font-size: 16px !important;-->
+<!--									}-->
+<!--								}-->
+<!--							</style>-->
+				<p style="font-size: 20px; margin-top: 25px">   This tutorial is grounded in our surveys and established benchmarks, all available as <a href=https://github.com/lavinWong/fairness-in-large-language-models style="font-style: italic"><strong>open-source resources</strong></a>.</p>
 <!--			<div class="event-countdown text-center mb-3">-->
 <!--				<h4 class="countdown-intro mb-2 text-center mb-3">Event Starts In:</h4>-->
 <!--				<div id="countdown-box" class="countdown-box"></div>-->
@@ -227,6 +298,7 @@
 <!--				</div>&lt;!&ndash;//row&ndash;&gt;-->
 <!--			</div>&lt;!&ndash;//container&ndash;&gt;-->
 <!--		</div>&lt;!&ndash;//media-block&ndash;&gt;-->
+
 	</section><!--//about-section-->
 	
 	<section id="speakers-section" class="speakers-section section">
@@ -419,6 +491,7 @@
 			</div><!--//row-->
 <!--			<div class="speakers-cta text-center py-3"><a class="btn btn-primary btn-lg" href="https://www.17sucai.com" target="_blank">Get Tickets</a></div>-->
 <!--		</div>&lt;!&ndash;//container&ndash;&gt;-->
+
 	</section><!--//speakers-section-->
 	
 	<div class="container">
@@ -464,7 +537,7 @@
 						</div><!--//meta-->
 						<div class="content">
 							<h3 class="title mb-3">Part I: Background on LMs</h3>
-							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room </div>
+							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room 518AB</div>
 							<div class="desc"><strong>- History of LMs <br>- Root Causes of Bias in LMs</strong> </div>
 						</div><!--//content-->
 					</div><!--//item-->
@@ -478,7 +551,7 @@
 						</div><!--//meta-->
 						<div class="content">
 							<h3 class="title mb-3">Part II: Quantifying Bias in LMs</h3>
-							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room </div>
+							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room 518AB</div>
 							<div class="desc"> <strong>- Fairness definitions for Encoder-only LMs<br>- Fairness definitions for Decoder-only LMs<br>- Fairness definitions for Encoder decoder LMs</strong></div>
 						</div><!--//content-->
 					</div><!--//item-->
@@ -503,7 +576,7 @@
 						</div><!--//meta-->
 						<div class="content">
 							<h3 class="title mb-3">Part III: Mitigating Bias in LMs</h3>
-							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room </div>
+							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room 518AB</div>
 							<div class="desc"><strong>- Pre-processing<br>- In-training<br>- Intra-processing <br>- Post-processing</strong></div>
 						</div><!--//content-->
 					</div><!--//item-->
@@ -521,7 +594,7 @@
 						</div><!--//meta-->
 						<div class="content">
 							<h3 class="title mb-3">Part IV: Resources for Evaluating Bias in LMs</h3>
-							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room </div>
+							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room 518AB </div>
 							<div class="desc"><strong>- Datasets for fairness in LMs<br>- Other resources for fairness in LMs</strong></div>
 						</div><!--//content-->
 					</div><!--//item-->
@@ -546,7 +619,7 @@
 						</div><!--//meta-->
 						<div class="content">
 							<h3 class="title mb-3">Part V: Future Directions</h3>
-							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room </div>
+							<div class="location mb-3"><i class="fas fa-map-marker-alt me-2"></i>Conference Room 518AB</div>
 							<div class="desc"><STRONG>- Rational Counterfactual Data Augmentation<BR>- Balancing Performance and Fairness in LMs<br>- Fulfilling Multiple Types of Fairness<br>- Theoretical Analysis and Guarantees
 								<br>- Developing More and Tailored Datasets</STRONG> </div>
 						</div><!--//content-->
@@ -981,7 +1054,114 @@
 	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
 	<script src="assets/plugins/smoothscroll.min.js"></script>
 	<script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
-	<script src="assets/js/main.js"></script>  
+	<script src="assets/js/main.js"></script>
+
+	<script>
+		(function(){
+			const NS = 'http://www.w3.org/2000/svg';
+			const comp = document.getElementById('paperFlow');
+			if(!comp) return;
+			const svg = comp.querySelector('.wires');
+			const leftBtns = Array.from(comp.querySelectorAll('.left-col .btn'));
+			const rightBtn = comp.querySelector('.right-col .btn');
+
+			function clear(){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
+
+			function draw(){
+				clear();
+				const cr = comp.getBoundingClientRect();
+				svg.setAttribute('viewBox', `0 0 ${cr.width} ${cr.height}`);
+
+				const leftBoxes = leftBtns.map(el => el.getBoundingClientRect());
+				const rbox = rightBtn.getBoundingClientRect();
+
+				const edgeColor = getComputedStyle(document.documentElement).getPropertyValue('--edge').trim() || '#9fb6d0';
+				// const arrowColor = getComputedStyle(document.documentElement).getPropertyValue('--bs-primary').trim() || '#0d6efd';
+				const arrowColor = edgeColor;  // 箭头颜色=连线颜色
+
+
+				// —— 细长三角箭头（更精致） ——
+				const defs = document.createElementNS(NS,'defs');
+				const marker = document.createElementNS(NS,'marker');
+				marker.setAttribute('id','pf-arrow');
+				marker.setAttribute('markerWidth','14');
+				marker.setAttribute('markerHeight','12');
+				marker.setAttribute('refX','12');
+				marker.setAttribute('refY','6');
+				marker.setAttribute('orient','auto-start-reverse');
+				const tip = document.createElementNS(NS,'path');
+				tip.setAttribute('d','M0,2 L12,6 L0,10 Z');
+				tip.setAttribute('fill', arrowColor);
+				defs.appendChild(marker); marker.appendChild(tip); svg.appendChild(defs);
+
+				// 计算“汇聚竖线”的 x
+				const leftMaxRight = Math.max(...leftBoxes.map(b=>b.right));
+				const spineX = Math.round((leftMaxRight + rbox.left)/2 - cr.left);
+
+				// 左组各按钮中心 y
+				const ys = leftBoxes
+						.map(b => Math.round((b.top + b.bottom)/2 - cr.top))
+						.sort((a,b)=>a-b);
+
+				// 左每个按钮 → 竖线 的水平段
+				leftBoxes.forEach(b=>{
+					const x1 = Math.round(b.right - cr.left);
+					const y  = Math.round((b.top + b.bottom)/2 - cr.top);
+					const seg = document.createElementNS(NS,'path');
+					seg.setAttribute('d', `M ${x1} ${y} L ${spineX} ${y}`);
+					seg.setAttribute('fill','none');
+					seg.setAttribute('stroke', edgeColor);
+					seg.setAttribute('stroke-width','2');
+					svg.appendChild(seg);
+				});
+
+				// 竖向汇聚线（贯穿左组）
+				const spine = document.createElementNS(NS,'line');
+				spine.setAttribute('x1', spineX);
+				spine.setAttribute('x2', spineX);
+				spine.setAttribute('y1', ys[0]);
+				spine.setAttribute('y2', ys[ys.length-1]);
+				spine.setAttribute('stroke', edgeColor);
+				spine.setAttribute('stroke-width','2');
+				svg.appendChild(spine);
+
+				// 竖线中点 → 右按钮中心 的箭头
+				// const midY = Math.round((ys[0] + ys[ys.length-1]) / 2);
+				// const rPoint = { x: Math.round(rbox.left - cr.left), y: Math.round((rbox.top+rbox.bottom)/2 - cr.top) };
+				// const arrow = document.createElementNS(NS,'line');
+				// arrow.setAttribute('x1', spineX);
+				// arrow.setAttribute('y1', midY);
+				// arrow.setAttribute('x2', rPoint.x);
+				// arrow.setAttribute('y2', rPoint.y);
+				// arrow.setAttribute('stroke', arrowColor);
+				// arrow.setAttribute('stroke-width','2.5');
+				// arrow.setAttribute('marker-end','url(#pf-arrow)');
+				// svg.appendChild(arrow);
+				const rMidY = Math.round((rbox.top + rbox.bottom)/2 - cr.top);
+// 保险起见：若右侧按钮中心不在竖线段范围内，夹到范围内
+				const yArrow = Math.min(Math.max(rMidY, ys[0]), ys[ys.length-1]);
+
+				const xSpine = spineX;
+				const xRight  = Math.round(rbox.left - cr.left);
+
+				const arrow = document.createElementNS(NS,'line');
+				arrow.setAttribute('x1', xSpine);
+				arrow.setAttribute('y1', yArrow);
+				arrow.setAttribute('x2', xRight);
+				arrow.setAttribute('y2', yArrow);   // 水平线
+				arrow.setAttribute('stroke', edgeColor);    // 若想箭杆跟连线同色
+				arrow.setAttribute('stroke-width','2.5');
+				arrow.setAttribute('marker-end','url(#pf-arrow)');
+				svg.appendChild(arrow);
+			}
+
+			const ro = new ResizeObserver(draw);
+			ro.observe(comp);
+			window.addEventListener('load', draw, { once:true });
+			window.addEventListener('resize', draw);
+			setTimeout(draw, 200); // 字体/回流兜底
+		})();
+	</script>
 
 </body>
 </html> 
